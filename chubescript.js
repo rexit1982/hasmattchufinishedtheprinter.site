@@ -269,27 +269,6 @@ window.addEventListener('devicemotion', (e) => {
   }
 });
 
-// 8. Chube Clicks - Sad Trombone
-const chubeCard = document.getElementById('chube-card');
-let chubeClicks = 0;
-if (chubeCard) {
-  chubeCard.style.cursor = 'pointer';
-  chubeCard.addEventListener('click', () => {
-    chubeClicks++;
-    if (chubeClicks >= 1) {
-      // Sad trombone sound (base64 encoded short beep as fallback)
-      const audio = new Audio('https://www.myinstants.com/media/sounds/sad-trombone.mp3');
-      audio.volume = 0.3;
-      audio.play().catch(() => {
-        // If external audio fails, do a visual effect instead
-        chubeCard.style.animation = 'shake 0.5s';
-        setTimeout(() => chubeCard.style.animation = '', 500);
-      });
-      chubeClicks = 0;
-    }
-  });
-}
-
 // Shake animation for chube
 if (!document.getElementById('shake-style')) {
   const style = document.createElement('style');
